@@ -1,0 +1,142 @@
+/* === Tailwind Directives === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Global Font and Base Styles === */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+  color: #1f2937; /* Tailwind gray-800 */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* === Responsive Typography === */
+h1, h2, h3 {
+  word-break: break-word;
+}
+
+/* === Custom Scrollbar === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 139, 0.3); /* Tailwind slate-500 @ 30% */
+  border-radius: 8px;
+}
+
+/* === File Upload Input === */
+input[type="file"]::file-selector-button {
+  display: none;
+}
+
+/* === Global Transitions === */
+input,
+button,
+textarea,
+select {
+  transition: all 0.2s ease-in-out;
+}
+
+/* === Tab Button States === */
+.tab-active {
+  background-color: #2563eb; /* Tailwind blue-600 */
+  color: #fff;
+}
+.tab-inactive {
+  background-color: #e5e7eb; /* Tailwind gray-200 */
+  color: #374151;            /* Tailwind gray-700 */
+}
+
+/* === Improved Toggle Styles === */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.toggle-on {
+  background-color: #22c55e; /* Tailwind green-500 */
+  color: white;
+}
+.toggle-off {
+  background-color: #d1d5db; /* Tailwind gray-300 */
+  color: #1f2937;            /* Tailwind gray-800 */
+}
+
+/* === Optional: Slider-style Checkbox Toggle === */
+input[type="checkbox"].toggle-input {
+  appearance: none;
+  width: 2.25rem;
+  height: 1.25rem;
+  background-color: #d1d5db;
+  border-radius: 9999px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+input[type="checkbox"].toggle-input::before {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  top: 0.125rem;
+  left: 0.125rem;
+  transition: transform 0.3s ease-in-out;
+}
+input[type="checkbox"].toggle-input:checked {
+  background-color: #22c55e;
+}
+input[type="checkbox"].toggle-input:checked::before {
+  transform: translateX(1rem);
+}
+
+/* === Loading Spinner === */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* === Mobile Responsive Enhancements === */
+@media (max-width: 640px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .tab-active,
+  .tab-inactive {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .upload-box {
+    padding: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+}
